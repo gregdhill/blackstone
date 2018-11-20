@@ -12,7 +12,8 @@ done
 # ----------------------------------------------------------
 #  variables
 if [[ "$CI_PROJECT_DIR" == "" ]]; then
-    export CI_PROJECT_DIR=`pwd`
+  DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null && pwd )"
+  export CI_PROJECT_DIR=${CI_PROJECT_DIR:-"${DIR}/../"}
 fi
 
 export NODE_ENV=${NODE_ENV:-"production"}
@@ -32,4 +33,3 @@ config_app() {
     done < $CI_PROJECT_DIR/contracts/abi.csv
     set -e
 }
-

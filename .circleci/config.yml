@@ -9,9 +9,9 @@ jobs:
       - checkout
       - run: make test
       - persist_to_workspace:
-          root: ./contracts/src/
+          root: ./api
           paths:
-            - bin
+            - public-abi
       - store_artifacts:
           path: ./test/chain/burrow.log
       - store_artifacts:
