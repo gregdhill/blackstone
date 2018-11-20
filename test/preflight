@@ -31,5 +31,6 @@ config_app() {
     while read -r abi; do
         cp $CONTRACTS_DIRECTORY/bin/$abi.bin $API_ABI_DIRECTORY_LOCAL/$abi.bin
     done < $CI_PROJECT_DIR/contracts/abi.csv
+    ls $API_ABI_DIRECTORY_LOCAL
     set -e
 }
